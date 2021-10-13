@@ -20,8 +20,8 @@
 		</div>
 	</nav>
 	<div class="container">
-		<div class="row mt-3" th:each="emprestimo : ${emprestimos.content}">
-			<div class="col">
+		<div class="row">
+			<div class="col mt-4" th:each="emprestimo : ${emprestimos.content}" style="float:left">
 				<div class="card" style="width: 18rem;">
 					<div class="card-header">
 						<span th:text="${emprestimo.nome}">Marcos</span>
