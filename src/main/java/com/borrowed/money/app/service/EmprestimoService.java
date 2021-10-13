@@ -86,4 +86,14 @@ public class EmprestimoService {
 		.block();
 	}
 
+	public void deletar(long id) {
+		webClient
+		.delete()
+		.uri("/emprestimo/" + id)
+		.retrieve()
+		.bodyToMono(Void.class)
+		.block();
+		
+	}
+
 }

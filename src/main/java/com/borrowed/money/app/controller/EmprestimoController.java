@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.borrowed.money.app.dto.EmprestimoDto;
 import com.borrowed.money.app.form.EmprestimoForm;
@@ -38,7 +39,16 @@ public class EmprestimoController {
 
 		emprestimoService.salvar(emprestimo);
 
-		return "emprestimo/home";
+		return "redirect:/home";
+	}
+
+	@GetMapping("/apagar")
+	private String deletar(@RequestParam(name = "id") String id) {
+		//System.out.println("Deletar ID: " + id);
+		
+		emprestimoService.deletar(Long.parseLong(id));
+		
+		return "redirect:/home";
 	}
 
 }
