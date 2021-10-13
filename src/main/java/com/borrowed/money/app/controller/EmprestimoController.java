@@ -19,7 +19,7 @@ public class EmprestimoController {
 	@Autowired
 	EmprestimoService emprestimoService;
 
-	@GetMapping
+	@GetMapping("/")
 	public String home(Model model) {
 
 		EmprestimoDto emprestimoDto = emprestimoService.listar();
@@ -39,16 +39,15 @@ public class EmprestimoController {
 
 		emprestimoService.salvar(emprestimo);
 
-		return "redirect:/home";
+		return "redirect:/emprestimo/";
 	}
 
 	@GetMapping("/apagar")
 	private String deletar(@RequestParam(name = "id") String id) {
-		//System.out.println("Deletar ID: " + id);
 		
 		emprestimoService.deletar(Long.parseLong(id));
 		
-		return "redirect:/home";
+		return "redirect:/emprestimo/";
 	}
 
 }
