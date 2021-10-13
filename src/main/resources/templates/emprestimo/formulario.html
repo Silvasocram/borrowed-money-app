@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	charset="UTF-8">
+<title>Borrowed Money</title>
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand">Borrowed Money</a> <a href="/emprestimo/novo">
+			</a>
+		</div>
+	</nav>
+	<div class="container">
+		<form action="/emprestimo/salvar" method="post">
+			<div class="mb-3">
+				<label for="nome" class="form-label">Nome</label> 
+				<input type="text" class="form-control" name="nome" id="nome" aria-describedby="nomeHelp">
+				<div id="nomeHelp" class="form-text">Informe um nome para o emprestimo.</div>
+			</div>
+			<div class="mb-3">
+				<label for="valor" class="form-label">Valor</label>
+				<input type="number" class="form-control" placeholder="99999,99" name="valor">
+			</div>
+			<div class="mb-3">
+				<label for="data" class="form-label">Data</label>
+				<input type="date" class="form-control" name="data">
+			</div>
+			<div class="mb-3">
+				<label for="percentual" class="form-label">Percentual</label>
+				<input type="number" class="form-control" placeholder="1" name="percentual">
+			</div>
+			<div class="mb-3">
+				<label for="valorDevido" class="form-label">Amortizado</label>
+				<input type="number" class="form-control" placeholder="99999,99" name="valorDevido">
+			</div>
+			<div class="mb-3">
+  				<label for="observacao" class="form-label">Observação</label>
+  				<textarea class="form-control" id="observacao" name="observacao" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-outline-primary">Salvar</button>
+		</form>
+	</div>
+</body>
+</html>
