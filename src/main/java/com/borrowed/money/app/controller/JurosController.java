@@ -16,7 +16,7 @@ public class JurosController {
 	 */
 	@GetMapping("/formulario")
 	public String formulario() {
-		return "/juros/formulario";
+		return "/formulario";
 	}
 
 }
