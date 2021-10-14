@@ -18,7 +18,7 @@ public class JurosController {
 	@GetMapping("/formulario")
 	public String formulario(Model model) {
 		model.addAttribute("nome", "Mensagem de juros dinâmica!");
-		return "/juros/formulario";
+		return "juros/formulario";
 	}
 
 }
