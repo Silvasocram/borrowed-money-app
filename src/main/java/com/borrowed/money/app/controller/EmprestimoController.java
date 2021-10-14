@@ -94,4 +94,9 @@ public class EmprestimoController {
 		return "emprestimo/detalhe";
 	}
 
+	@GetMapping("juros/formulario")
+	private String jurosFormulario() {
+		return "/emprestimo/juros-formulario";
+	}
+
 }
