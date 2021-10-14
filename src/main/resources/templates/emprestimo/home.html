@@ -66,7 +66,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col">
-								<a href="#" class="btn btn-outline-info">Detalhes</a> 
+								<a th:href="@{/emprestimo/detalhes/(id=${emprestimo.id})}" class="btn btn-outline-info">Detalhes</a> 
 								<a href="#" class="btn btn-outline-warning">Alterar</a> 
 								<a th:href="@{/emprestimo/apagar/(id=${emprestimo.id})}" class="btn btn-outline-danger">Apagar</a>
 							</div>
