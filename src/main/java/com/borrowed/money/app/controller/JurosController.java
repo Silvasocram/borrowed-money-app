@@ -1,6 +1,7 @@
 package com.borrowed.money.app.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,8 +16,9 @@ public class JurosController {
 	 * @return formulario.html
 	 */
 	@GetMapping("/formulario")
-	public String formulario() {
-		return "/formulario";
+	public String formulario(Model model) {
+		model.addAttribute("nome", "Mensagem de juros dinâmica!");
+		return "/juros/formulario";
 	}
 
 }
