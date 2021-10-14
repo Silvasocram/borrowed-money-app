@@ -25,6 +25,7 @@ public class EmprestimoController {
 
 	/**
 	 * Método responsável por carregar todos os emprestimos.
+	 * 
 	 * @param model
 	 * @return home.html
 	 */
@@ -39,7 +40,9 @@ public class EmprestimoController {
 	}
 
 	/**
-	 * Abre o html do fomulário para que possamos preencher e posteriormente salvarmos.
+	 * Abre o html do fomulário para que possamos preencher e posteriormente
+	 * salvarmos.
+	 * 
 	 * @return formulario.html
 	 */
 	@GetMapping("/formulario")
@@ -48,8 +51,9 @@ public class EmprestimoController {
 	}
 
 	/**
-	 * Método responsável por salvar um novo emprestimo, após salvar, 
-	 * retorna para página principal listando todos os empréstimos.
+	 * Método responsável por salvar um novo emprestimo, após salvar, retorna para
+	 * página principal listando todos os empréstimos.
+	 * 
 	 * @param emprestimo
 	 * @return home.html
 	 */
@@ -63,29 +67,31 @@ public class EmprestimoController {
 
 	/**
 	 * Método responsável por exlcuir um determinado empréstimo.
+	 * 
 	 * @param id
 	 * @return home.html
 	 */
 	@GetMapping("/apagar")
 	private String deletar(@RequestParam(name = "id") String id) {
-		
+
 		emprestimoService.deletar(Long.parseLong(id));
-		
+
 		return "redirect:/emprestimo/";
 	}
-	
-	@GetMapping("/detalhes")
-	private String detalhes(@RequestParam(name="id") String id, Model model) {
-		
-		EmprestimoDetalhesDto emprestimoDetalhesDto = emprestimoService.detalhes(Long.parseLong(id));
-		
-		model.addAttribute("emprestimoDetalhesDto", emprestimoDetalhesDto);
-		
-		//System.out.println("Nome: " + emprestimoDetalhesDto.getNome());
 
-		//emprestimoDetalhesDto.getJuros().forEach(juros -> System.out.println("Data: " + juros.getData() + "Valor: " + juros.getValor()));
-		
-		return "emprestimo/detalhe";	
+	@GetMapping("/detalhes")
+	private String detalhes(@RequestParam(name = "id") String id, Model model) {
+
+		EmprestimoDetalhesDto emprestimoDetalhesDto = emprestimoService.detalhes(Long.parseLong(id));
+
+		model.addAttribute("emprestimoDetalhesDto", emprestimoDetalhesDto);
+
+		// System.out.println("Nome: " + emprestimoDetalhesDto.getNome());
+
+		// emprestimoDetalhesDto.getJuros().forEach(juros -> System.out.println("Data: "
+		// + juros.getData() + "Valor: " + juros.getValor()));
+
+		return "emprestimo/detalhe";
 	}
 
 }
