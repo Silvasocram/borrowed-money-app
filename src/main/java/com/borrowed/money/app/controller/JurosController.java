@@ -40,7 +40,9 @@ public class JurosController {
 
 		jurosService.salvar(jurosForm);
 
-		return "emprestimo/detalhes/?id=" + this.emprestimoId;
+		return "juros/formulario";
+		
+		//return "/emprestimo/detalhes/?id=" + this.emprestimoId;
 	}
 
 }
