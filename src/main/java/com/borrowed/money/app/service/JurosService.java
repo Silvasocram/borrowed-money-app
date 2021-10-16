@@ -5,7 +5,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.borrowed.money.app.dto.EmprestimoDetalhesDto;
 import com.borrowed.money.app.dto.EmprestimoDto;
 import com.borrowed.money.app.form.JurosForm;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -80,33 +79,28 @@ public class JurosService {
 	public void salvar(JurosForm juros) {
 		webClient
 		.post()
-		.uri("/juros/")
+		.uri("/juros")
 		.bodyValue(juros)
 		.retrieve()
 		.bodyToMono(JurosForm.class)
 		.block();
 	}
 
-	public void deletar(long id) {
-		webClient
-		.delete()
-		.uri("/emprestimo/" + id)
-		.retrieve()
-		.bodyToMono(Void.class)
-		.block();
-		
-	}
+	/*
+	 * public void deletar(long id) { webClient .delete() .uri("/emprestimo/" + id)
+	 * .retrieve() .bodyToMono(Void.class) .block();
+	 * 
+	 * }
+	 */
 
-	public EmprestimoDetalhesDto detalhes(long id) {
-		
-		EmprestimoDetalhesDto emprestimoDetalhesDto = webClient
-		.get()
-		.uri("/emprestimo/" + id)
-		.retrieve()
-		.bodyToMono(EmprestimoDetalhesDto.class)
-		.block();
-		
-		return emprestimoDetalhesDto;
-	}
+	/*
+	 * public EmprestimoDetalhesDto detalhes(long id) {
+	 * 
+	 * EmprestimoDetalhesDto emprestimoDetalhesDto = webClient .get()
+	 * .uri("/emprestimo/" + id) .retrieve()
+	 * .bodyToMono(EmprestimoDetalhesDto.class) .block();
+	 * 
+	 * return emprestimoDetalhesDto; }
+	 */
 
 }
