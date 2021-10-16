@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	charset="UTF-8">
+<title>Borrowed Money</title>
 </head>
 <body>
-	<h1>
-		<span th:text=${nome}></span>
-	</h1>
+	<nav class="navbar navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand">Borrowed Money</a> 
+			<!--a href="/emprestimo/novo">
+			</a-->
+		</div>
+	</nav>
+	<div class="container">
+		<form action="/juros/salvar" method="post">
+			<div class="mb-3 col-5 col-sm-4 col-md-3 col-xl-2">
+				<label for="data" class="form-label">Data</label> <input type="date"
+					class="form-control" name="data">
+			</div>
+			<div class="mb-3  col-5 col-sm-4 col-md-3 col-xl-2">
+				<label for="valor" class="form-label">Valor</label> <input
+					type="text" class="form-control" name="valor">
+			</div>
+			<button type="submit" class="btn btn-outline-primary">Salvar</button>
+		</form>
+	</div>
 </body>
 </html>
