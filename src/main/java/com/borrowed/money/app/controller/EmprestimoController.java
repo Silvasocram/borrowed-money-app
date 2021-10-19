@@ -103,13 +103,13 @@ public class EmprestimoController {
 	@PostMapping("/salvarAlteracao")
 	private String salvarAlteracao(EmprestimoDetalhesDto emprestimo) {
 
-		/*
-		 * System.out.println("ID: " + emprestimo.getId() + " Nome: " +
-		 * emprestimo.getNome() + " Valor: " + emprestimo.getValor() + " Data: " +
-		 * emprestimo.getData() + " Percentual: " + emprestimo.getPercentual() +
-		 * " Amortizado: " + emprestimo.getValorDevido() + " Observação: " +
-		 * emprestimo.getObservacao());
-		 */
+		
+		  System.out.println("ID: " + emprestimo.getId() + " Nome: " +
+		  emprestimo.getNome() + " Valor: " + emprestimo.getValor() + " Data: " +
+		  emprestimo.getData() + " Percentual: " + emprestimo.getPercentual() +
+		  " Amortizado: " + emprestimo.getValorDevido() + " Observação: " +
+		  emprestimo.getObservacao());
+		 
 
 		/*
 		 * EmprestimoDetalhesDto emprestimoDetalhesDto =
@@ -137,6 +137,7 @@ public class EmprestimoController {
 		  emprestimoService.alterar(emprestimo.getId(), emprestimoForm);
 		 
 
-		return "redirect:/emprestimo/";
+		  return null;
+		//return "redirect:/emprestimo/";
 	}
 }

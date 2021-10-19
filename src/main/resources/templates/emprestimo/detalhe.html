@@ -64,6 +64,7 @@
 					<th scope="col">#</th>
 					<th scope="col">Data</th>
 					<th scope="col">Valor</th>
+					<th scope="col">Ação</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -72,6 +73,12 @@
 					<td><span
 						th:text="${#temporals.format(juros.data, 'dd/MM/yyyy')}"></span></td>
 					<td><span th:text="${#numbers.formatCurrency(juros.valor)}"></span></td>
+					<td>
+						<!--<a th:href="@{/juros/apagar/(id=${juros.id})}">-->
+						<a th:href="@{/juros/apagar/(id=${juros.id},(emprestimo_id=${juros.emprestimo_id}))}">
+							<button class="btn btn-outline-danger btn-sm">Apagar</button>
+					</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>

@@ -26,33 +26,12 @@ public class EmprestimoService {
 
 	public EmprestimoDto listar() {
 
-		/*
-		 * List<JurosDto> jurosDto = this.webClient .method(HttpMethod.GET)
-		 * .uri("/juros/{empresa_id}", empresa_id) .retrieve() .bodyToMono(new
-		 * ParameterizedTypeReference<List<JurosDto>>() {}) .block();
-		 * 
-		 * 
-		 * jurosDto.forEach(j ->{ System.out.println("Valor: " + j.getValor() +
-		 * " Data: " + j.getData()); });
-		 */
-
 		String retorno = this.webClient
 				.get()
 				.uri("/emprestimo/")
 				.retrieve()
 				.bodyToMono(String.class).block();
 
-		/*
-		 * String jsonStr = response.readEntity(String.class); ObjectMapper mapper = new
-		 * ObjectMapper(); JsonNode rootNode = mapper.readTree(jsonStr);
-		 * 
-		 * // Start by checking if this is a list -> the order is important here: if
-		 * (rootNode instanceof ArrayNode) { // Read the json as a list: myObjClass[]
-		 * objects = mapper.readValue(rootNode.toString(), myObjClass[].class); ... }
-		 * else if (rootNode instanceof JsonNode) { // Read the json as a single object:
-		 * myObjClass object = mapper.readValue(rootNode.toString(), myObjClass.class);
-		 * ... } else { ... }
-		 */
 
 		EmprestimoDto emprestimo = new EmprestimoDto();
 		ObjectMapper mapper = new ObjectMapper();
@@ -113,11 +92,10 @@ public class EmprestimoService {
 		webClient
 		.put()
 		.uri("/emprestimo/" + id)
-		//.body(Mono.just(emprestimo), EmprestimoForm.class)
 		.bodyValue(emprestimo)
 		.retrieve()
-		.bodyToMono(EmprestimoForm.class)
-		.block();		
+		.bodyToMono(Void.class)
+		.block();	
 	}
 
 	public void alterar(EmprestimoDetalhesDto emprestimoDetalhesDto) {
@@ -126,7 +104,7 @@ public class EmprestimoService {
 		.uri("/emprestimo/" + emprestimoDetalhesDto.getId())
 		.bodyValue(emprestimoDetalhesDto)
 		.retrieve()
-		.bodyToMono(EmprestimoDetalhesDto.class)
+		.bodyToMono(Void.class)
 		.block();		
 	}
 

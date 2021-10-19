@@ -40,9 +40,18 @@ public class JurosController {
 
 		jurosService.salvar(jurosForm);
 
-		//return "juros/formulario";
-		
 		return "redirect:/emprestimo/detalhes/?id=" + this.emprestimoId;
+	}
+	
+	@GetMapping("/apagar")
+	private String apagar(@RequestParam(name = "id") String id, @RequestParam(name = "emprestimo_id") String emprestimo_id) {
+		
+		//System.out.println("Deletar ID: " + id + " EmprestimoId: " + emprestimo_id);
+		
+		jurosService.deletar(Long.parseLong(id));
+		
+		
+		return "redirect:/emprestimo/detalhes/?id=" + emprestimo_id; 
 	}
 
 }

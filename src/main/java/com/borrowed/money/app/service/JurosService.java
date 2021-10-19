@@ -16,12 +16,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 @Service
 public class JurosService {
 
-	WebClient webClient = WebClient
+	WebClient webClient = 
+			WebClient
 			.builder()
 			.baseUrl("https://borrowed-money-api.herokuapp.com/")
 			.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 			.build();
-
 
 	public EmprestimoDto listar() {
 
@@ -35,11 +35,7 @@ public class JurosService {
 		 * " Data: " + j.getData()); });
 		 */
 
-		String retorno = this.webClient
-				.get()
-				.uri("/emprestimo/")
-				.retrieve()
-				.bodyToMono(String.class).block();
+		String retorno = this.webClient.get().uri("/emprestimo/").retrieve().bodyToMono(String.class).block();
 
 		/*
 		 * String jsonStr = response.readEntity(String.class); ObjectMapper mapper = new
@@ -69,7 +65,7 @@ public class JurosService {
 			}
 
 		} catch (JsonProcessingException e) {
-			System.out.println("Deu ruim, cai na exception");
+			// System.out.println("Deu ruim, cai na exception");
 			e.printStackTrace();
 		}
 
@@ -86,21 +82,13 @@ public class JurosService {
 		.block();
 	}
 
-	/*
-	 * public void deletar(long id) { webClient .delete() .uri("/emprestimo/" + id)
-	 * .retrieve() .bodyToMono(Void.class) .block();
-	 * 
-	 * }
-	 */
+	public void deletar(long id) {
+		webClient.delete()
+		.uri("/juros/" + id)
+		.retrieve()
+		.bodyToMono(Void.class)
+		.block();
 
-	/*
-	 * public EmprestimoDetalhesDto detalhes(long id) {
-	 * 
-	 * EmprestimoDetalhesDto emprestimoDetalhesDto = webClient .get()
-	 * .uri("/emprestimo/" + id) .retrieve()
-	 * .bodyToMono(EmprestimoDetalhesDto.class) .block();
-	 * 
-	 * return emprestimoDetalhesDto; }
-	 */
+	}
 
 }
