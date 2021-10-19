@@ -66,10 +66,41 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col">
-								<a th:href="@{/emprestimo/detalhes/(id=${emprestimo.id})}" class="btn btn-outline-info">Detalhes</a> 
-								<!--<a th:href="@{/emprestimo/alterar/(id=${emprestimo.id})}" class="btn btn-outline-warning">Alterar</a>--> 
-								<a href="#" class="btn btn-outline-warning">Alterar</a>
-								<a th:href="@{/emprestimo/apagar/(id=${emprestimo.id})}" class="btn btn-outline-danger">Apagar</a>
+								<a th:href="@{/emprestimo/detalhes/(id=${emprestimo.id})}"
+									class="btn btn-outline-info">Detalhes</a>
+								<!--<a th:href="@{/emprestimo/alterar/(id=${emprestimo.id})}" class="btn btn-outline-warning">Alterar</a>-->
+
+
+
+								<!--<a th:href="@{/emprestimo/apagar/(id=${emprestimo.id})}" class="btn btn-outline-danger">Apagar</a>-->
+
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-outline-danger"
+									data-bs-toggle="modal" data-bs-target="#exampleModal">
+									Apagar</button>
+
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">Tem certeza que deseja excluir
+												este registro?</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-outline-danger btn-sm"
+													data-bs-dismiss="modal">Não</button>
+												<a th:href="@{/emprestimo/apagar/(id=${emprestimo.id})}">
+													<button class="btn btn-outline-success btn-sm">Sim</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -77,5 +108,10 @@
 			</div>
 		</div>
 	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous">
+	</script>
 </body>
 </html>

@@ -13,7 +13,8 @@
 <body>
 	<nav class="navbar navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand">Borrowed Money</a> <a href="#"> </a>
+			<a class="navbar-brand" href="/emprestimo/">Borrowed Money</a> <a
+				href=""> </a>
 		</div>
 	</nav>
 	<div class="container">
@@ -74,14 +75,48 @@
 						th:text="${#temporals.format(juros.data, 'dd/MM/yyyy')}"></span></td>
 					<td><span th:text="${#numbers.formatCurrency(juros.valor)}"></span></td>
 					<td>
-						<!--<a th:href="@{/juros/apagar/(id=${juros.id})}">-->
-						<a th:href="@{/juros/apagar/(id=${juros.id},(emprestimo_id=${juros.emprestimo_id}))}">
+						<!--		<a
+						th:href="@{/juros/apagar/(id=${juros.id},(emprestimo_id=${juros.emprestimo_id}))}">
 							<button class="btn btn-outline-danger btn-sm">Apagar</button>
-					</a>
+					</a>--> 
+					
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-outline-danger btn-sm"
+							data-bs-toggle="modal" data-bs-target="#exampleModal">
+							Apagar</button> 
+							
+							<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">Tem certeza que deseja excluir
+										este registro?</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-outline-danger btn-sm"
+											data-bs-dismiss="modal">Não</button>
+										<a
+											th:href="@{/juros/apagar/(id=${juros.id},(emprestimo_id=${juros.emprestimo_id}))}">
+											<button class="btn btn-outline-success btn-sm">Sim</button>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 </body>
 </html>
