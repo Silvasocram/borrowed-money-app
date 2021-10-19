@@ -109,4 +109,25 @@ public class EmprestimoService {
 		return emprestimoDetalhesDto;
 	}
 
+	public void alterar(Long id, EmprestimoForm emprestimo) {
+		webClient
+		.put()
+		.uri("/emprestimo/" + id)
+		//.body(Mono.just(emprestimo), EmprestimoForm.class)
+		.bodyValue(emprestimo)
+		.retrieve()
+		.bodyToMono(EmprestimoForm.class)
+		.block();		
+	}
+
+	public void alterar(EmprestimoDetalhesDto emprestimoDetalhesDto) {
+		webClient
+		.put()
+		.uri("/emprestimo/" + emprestimoDetalhesDto.getId())
+		.bodyValue(emprestimoDetalhesDto)
+		.retrieve()
+		.bodyToMono(EmprestimoDetalhesDto.class)
+		.block();		
+	}
+
 }

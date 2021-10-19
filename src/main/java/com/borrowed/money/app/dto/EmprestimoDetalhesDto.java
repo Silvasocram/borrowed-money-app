@@ -1,7 +1,6 @@
 package com.borrowed.money.app.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 public class EmprestimoDetalhesDto {
@@ -9,7 +8,7 @@ public class EmprestimoDetalhesDto {
 	private Long id;
 	private String nome;
 	private BigDecimal valor;
-	private LocalDate data;
+	private String data;
 	private Double percentual;
 	private BigDecimal valorDevido;
 	private String observacao;
@@ -39,11 +38,11 @@ public class EmprestimoDetalhesDto {
 		this.valor = valor;
 	}
 
-	public LocalDate getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

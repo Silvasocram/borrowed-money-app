@@ -86,11 +86,57 @@ public class EmprestimoController {
 
 		model.addAttribute("emprestimoDetalhesDto", emprestimoDetalhesDto);
 
-		// System.out.println("Nome: " + emprestimoDetalhesDto.getNome());
-
-		// emprestimoDetalhesDto.getJuros().forEach(juros -> System.out.println("Data: "
-		// + juros.getData() + "Valor: " + juros.getValor()));
-
 		return "emprestimo/detalhe";
+	}
+
+	@GetMapping("/alterar")
+	private String alterar(@RequestParam(name = "id") String id, Model model) {
+
+		EmprestimoDetalhesDto emprestimoDetalhesDto = emprestimoService.detalhes(Long.parseLong(id));
+
+		model.addAttribute("emprestimoDetalhesDto", emprestimoDetalhesDto);
+
+		return "emprestimo/alterar";
+
+	}
+
+	@PostMapping("/salvarAlteracao")
+	private String salvarAlteracao(EmprestimoDetalhesDto emprestimo) {
+
+		/*
+		 * System.out.println("ID: " + emprestimo.getId() + " Nome: " +
+		 * emprestimo.getNome() + " Valor: " + emprestimo.getValor() + " Data: " +
+		 * emprestimo.getData() + " Percentual: " + emprestimo.getPercentual() +
+		 * " Amortizado: " + emprestimo.getValorDevido() + " Observação: " +
+		 * emprestimo.getObservacao());
+		 */
+
+		/*
+		 * EmprestimoDetalhesDto emprestimoDetalhesDto =
+		 * emprestimoService.detalhes(emprestimo.getId());
+		 * 
+		 * emprestimoDetalhesDto.setNome(emprestimo.getNome());
+		 * emprestimoDetalhesDto.setData(emprestimo.getData());
+		 * emprestimoDetalhesDto.setObservacao(emprestimo.getObservacao());
+		 * emprestimoDetalhesDto.setPercentual(emprestimo.getPercentual());
+		 * emprestimoDetalhesDto.setValor(emprestimo.getValor());
+		 * emprestimoDetalhesDto.setValorDevido(emprestimo.getValorDevido());
+		 * 
+		 * emprestimoService.alterar(emprestimoDetalhesDto);
+		 */
+
+		
+		  EmprestimoForm emprestimoForm = new EmprestimoForm();
+		  emprestimoForm.setNome(emprestimo.getNome());
+		  emprestimoForm.setData(emprestimo.getData());
+		  emprestimoForm.setObservacao(emprestimo.getObservacao());
+		  emprestimoForm.setPercentual(emprestimo.getPercentual());
+		  emprestimoForm.setValor(emprestimo.getValor());
+		  emprestimoForm.setValorDevido(emprestimo.getValorDevido());
+		  
+		  emprestimoService.alterar(emprestimo.getId(), emprestimoForm);
+		 
+
+		return "redirect:/emprestimo/";
 	}
 }
